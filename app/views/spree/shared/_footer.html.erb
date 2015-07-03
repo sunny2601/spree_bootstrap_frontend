@@ -1,10 +1,52 @@
-<div id="spree-footer">
-	<div class="container">
-		<footer id="footer" class="row" data-hook>
-		  <div id="footer-left" class="col-md-6" data-hook>
-		    <p><%= Spree.t :powered_by  %>&nbsp;<%= link_to 'Spree', 'http://spreecommerce.com/' %></p>
-		  </div>
-		  <div id="footer-right" class="col-md-6" data-hook></div>
-		</footer>
-	</div>
-</div>
+<div class="container-fluid" style="  border-top: 2px solid rgb(220, 218, 219);"></div>
+    <div class="container-fluid footer-1">
+      <footer>
+        <div class="container">
+          <div class="row footer-btm">
+            <div class="col-md-3">
+              <div class="heading">ABOUT</div>
+              <div class="footer-img"><%= image_tag("durable-store.png", :class => "img-responsive") %></div>
+              <p class="about-durable">Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque.</p>
+            </div>
+            <div class="col-md-3">
+              <div class="heading">POLICY & PROCEDURE</div>
+              <div class="footer-links">
+                <ul class="list-unstyled">
+                  <li>Cancellations</li>
+                  <li>Exchange</li>
+                  <li>Discount</li>
+                  <li>Shipping</li>
+                  <li>Disclaimer</li>
+                  <li>Contact Us</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="heading">PAYMENT OPTIONS</div>
+              <div class="footer-links">
+                <ul class="list-unstyled">
+                  <li>Net Banking</li>
+                  <li>Credit / Debit Card</li>
+                  <li>Cash / Cheque</li>
+                  <li>EMI</li>
+                  <li>Contact Us</li>
+                  <li>COD</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="heading"></div>
+                <div class="social">
+                  <div class="col-md-2 pull-right" style="width:100%;"><%= image_tag("cards.png", :class => "img-responsive") %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-md-10">
+              <p>&copy; All Right Reserved by Durable Store</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
