@@ -1,14 +1,14 @@
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+<div class="col-md-12" style="background:rgb(151, 153, 150);;height:40px;"><p class="cart-p">Continue Shopping</p></div>
 <table class="table" id="cart-detail" data-hook>
-  <thead>
-    <tr class="active" data-hook="cart_items_headers">
-      <th class="cart-item-description-header" colspan="2"><%= Spree.t(:item) %></th>
-      <th class="cart-item-price-header"><%= Spree.t(:price) %></th>
-      <th class="cart-item-quantity-header"><%= Spree.t(:qty) %></th>
-      <th class="cart-item-total-header"><%= Spree.t(:total) %></th>
-      <th class="cart-item-delete-header"></th>
-    </tr>
-  </thead>
+  <div class="col-md-12 bottom-border bottom-space">
+    <div class="col-md-2">Product Image</div>
+    <div class="col-md-3">Product Name</div>
+    <div class="col-md-2">Product Price</div>
+    <div class="col-md-1">Quantity</div>
+    <div class="col-md-2">Product Total</div>
+    <div class="col-md-2">Action</div>
+  </div>
   <tbody id="line_items" data-hook>
     <%= render partial: 'line_item', collection: order_form.object.line_items, locals: {order_form: order_form} %>
   </tbody>
@@ -20,9 +20,9 @@
     </tr>
     <%= render "spree/orders/adjustments" %>
   <% end %>
-  <tr class="warning cart-total">
-    <td colspan="4" align='right'><h5><%= Spree.t(:total) %></h5></th>
+  <!-- <tr class="warning cart-total">
+    <td colspan="4" align='right'><h5><%#= Spree.t(:total) %></h5></th>
     <td class="lead" colspan><%= order_form.object.display_total %></td>
     <td></td>
-  </tr>
+  </tr> -->
 </table>
