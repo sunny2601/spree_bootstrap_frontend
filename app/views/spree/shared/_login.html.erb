@@ -1,11 +1,18 @@
 <%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
   <fieldset id="password-credentials">
-    <div class="form-group">
-      <%= f.email_field :email, :class => 'form-control', :tabindex => 1, :placeholder => Spree.t(:email) %>
+    <div class="textbox-wrap" >
+      <div class="input-group">
+        <span class="input-group-addon inp"><i class="fa fa-facebook"></i></span>
+        <%= f.email_field :email, :class => 'form-control frm', :tabindex => 1, :placeholder => Spree.t(:email) %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.password_field :password, :class => 'form-control', :tabindex => 2, :placeholder => Spree.t(:password) %>
-    </div>
+    <br>
+     <div class="textbox-wrap" >
+        <div class="input-group">
+          <span class="input-group-addon inp"><i class="fa fa-facebook"></i></span>
+          <%= f.password_field :password, :class => 'form-control frm', :tabindex => 2, :placeholder => Spree.t(:password) %>
+        </div>
+      </div>
     <div class="checkbox">
       <label>
         <%= f.check_box :remember_me %>
@@ -13,7 +20,7 @@
       </label>
     </div>
     <div class="form-group">
-      <%= f.submit Spree.t(:login), :class => 'btn btn-lg btn-success btn-block', :tabindex => 3 %>
+      <%= f.submit Spree.t(:login), :class => 'btn btn-default blue-btn btn-reg', :tabindex => 3 %>
     </div>
   </fieldset>
 <% end %>
