@@ -1,14 +1,14 @@
 <% variant = line_item.variant -%>
 <%= order_form.fields_for :line_items, line_item do |item_form| -%>
-  <div class="col-md-12 bottom-border">
-    <div class="col-md-2">
+  <tr class="line-item">
+    <td class="cart-item-image col-md-2" data-hook="cart_item_image">
       <% if variant.images.length == 0 %>
         <%= link_to small_image(variant.product), variant.product %>
       <% else %>
         <%= link_to image_tag(variant.images.first.attachment.url(:small)), variant.product %>
       <% end %>
-    </div>
-    <div class="col-md-3">
+    </td>
+    <td class="cart-item-description col-md-3" data-hook="cart_item_description">
       <h4><%= link_to line_item.name, product_path(variant.product) %></h4>
       <%= variant.options_text %>
       <% if @order.insufficient_stock_lines.include? line_item %>
@@ -19,18 +19,18 @@
       <span class="line-item-description" data-hook="line_item_description">
         <%= line_item_description_text(line_item.description) %>
       </span>
-    </div>
-    <div class="col-md-2">
-      <h4><%= line_item.single_money.to_html %></h4>
-    </div>
-    <div class="col-md-1">
+    </td>
+    <td class="lead text-primary cart-item-price col-md-2" data-hook="cart_item_price">
+      <%= line_item.single_money.to_html %>
+    </td>
+    <td class="cart-item-quantity col-md-1" data-hook="cart_item_quantity">
       <%= item_form.number_field :quantity, :min => 0, :class => "form-control line_item_quantity", :size => 5 %>
-    </div>
-    <div class="col-md-2">
-      <h4><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></h4>
-    </div>
-    <div class="cart-item-delete col-md-2" data-hook="cart_item_delete">
-      <%= link_to image_tag('icons/delete.png'), '#', :class => 'delete', :id => "delete_#{dom_id(line_item)}" %>
-    </div>
+    </td>
+    <td class="lead text-primary cart-item-total col-md-2" data-hook="cart_item_total">
+      <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
+    </td>
+    <td class="cart-item-delete col-md-2" data-hook="cart_item_delete">
+      <%= link_to image_tag('distroy_new.png'), '#', :class => 'delete', :id => "delete_#{dom_id(line_item)}" %>
+    </td>
   </tr>
 <% end -%>
