@@ -14,15 +14,15 @@
 
           <table class="table stock-contents" data-hook="stock-contents">
             <colgroup>
-              <col style="width: 10%;" />
-              <col style="width: 60%;" />
-              <col style="width: 10%;" />
+              <col style="width: 20%;" />
+              <col style="width: 40%;" />
+              <col style="width: 20%;" />
               <col style="width: 20%;" />
             </colgroup>
             <thead>
-              <tr class="active">
-                <th></th>
-                <th align='left'><%= Spree.t(:item) %></th>
+              <tr class="bar">
+                <th align='left'><%= 'Product Image' %></th>
+                <th><%= "Product Name" %></th>
                 <th><%= Spree.t(:qty) %></th>
                 <th><%= Spree.t(:price) %></th>
               </tr>
@@ -40,9 +40,9 @@
           </table>
 
           <h4 class="stock-shipping-method-title"><%= Spree.t(:shipping_method) %></h4>
-          <ul class="list-group shipping-methods">
+          <ul class="well list-group shipping-methods">
             <% ship_form.object.shipping_rates.each do |rate| %>
-              <li class="list-group-item shipping-method">
+              <li class="well list-group-item shipping-method">
                 <label>
                   <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
                   <span class="rate-name"><%= rate.name %></span>
@@ -100,5 +100,5 @@
 <br />
 
 <div class="well text-right form-buttons" data-hook="buttons">
-  <%= submit_tag Spree.t(:save_and_continue), :class => 'btn btn-lg btn-success' %>
+  <%= submit_tag Spree.t(:save_and_continue), :class => 'btn btn-default inpp add_btn' %>
 </div>
