@@ -19,10 +19,15 @@
             <div class='flash error'><%= flash[:registration_error] %></div>
           <% end %>
           <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration' } do |f| %>
-            <p>
-              <%= f.email_field :email, :class => 'form-control title', :placeholder => Spree.t(:email) %>
-            </p>
-            <p><%= f.submit Spree.t(:continue), :class => 'btn btn-lg btn-success btn-block' %></p>
+            <div class="textbox-wrap">
+              <div class="input-group">
+                <span class="input-group-addon inp"><i class="fa fa-facebook"></i></span>
+                <%= f.email_field :email, :class => 'form-control frm', :placeholder => Spree.t(:email) %>
+              </div>
+            </div><br>
+            <div class="textbox-wrap">
+              </i><%= f.submit Spree.t(:continue), :class => 'btn btn-default blue-btn btn-reg' %>
+            </div>
           <% end %>
         </div>
       </div>
