@@ -44,15 +44,16 @@
 <hr />
 
 <table id='line-items' class="table" data-hook="order_details">
-  <col width="15%" valign="middle" halign="center">
-  <col width="70%" valign="middle">
-  <col width="5%" valign="middle" halign="center">
-  <col width="5%" valign="middle" halign="center">
-  <col width="5%" valign="middle" halign="center">
+  <col width="20%" valign="middle" halign="center">
+  <col width="40%" valign="middle">
+  <col width="20%" valign="middle" halign="center">
+  <col width="20%" valign="middle" halign="center">
+  <col width="20%" valign="middle" halign="center">
 
   <thead data-hook>
-    <tr class="active" data-hook="order_details_line_items_headers">
-      <th colspan="2"><%= Spree.t(:item) %></th>
+    <tr class="bar" data-hook="order_details_line_items_headers">
+      <th><%= 'Product Image' %></th>
+      <th><%= "Product Name" %></th>
       <th class="price"><%= Spree.t(:price) %></th>
       <th class="qty"><%= Spree.t(:qty) %></th>
       <th class="total"><span><%= Spree.t(:total) %></span></th>
