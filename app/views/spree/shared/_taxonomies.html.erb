@@ -1,10 +1,25 @@
 <% unless @taxonomies.empty? %>
-  <nav id="taxonomies" class="sidebar-item" data-hook>
-    <% @taxonomies.each do |taxonomy| %>
-      <% cache taxonomy do %>
-        <h4 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h4>
-        <%= taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 1) %>
-      <% end %>
+	<nav id="taxonomies" class="sidebar-item " data-hook>
+	  <% @taxonomies.each do |taxonomy| %>
+			<% unless taxonomy.name == 'Tags' %>
+	      <div class ="imgg-shadow" style="padding: 10px 0px 10px 0px;">
+	      <% cache taxonomy do %>
+	        <h3 style="margin-left: 38px;"><%= taxonomy.name.titleize %></h3>
+            <%= max_level = 1
+            return '' if max_level < 1 || taxonomy.root.leaf?
+            content_tag :ul, class: 'taxons-list' do
+              taxonomy.root.children.map do |taxon|
+                css_class = (@taxon && @taxon.self_and_ancestors.include?(taxon)) ? 'current' : nil
+                content_tag :li, class: 'notli' do
+                 "#{image_tag 'blt-1.png', :class=>'img-responsive;' }&nbsp&nbsp".html_safe + link_to(taxon.name, seo_url(taxon)) +
+                 taxons_tree(taxon, @taxon, max_level - 1)
+                end
+              end.join("\n").html_safe
+            end
+            %>
+	      <% end %>
+	      </div>
+			<% end %>
     <% end %>
   </nav>
 <% end %>
