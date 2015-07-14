@@ -1,0 +1,21 @@
+<div class="col-md-9 bottom-space" style="background:rgb(151, 153, 150);;height:40px;"><p class="cart-p"><%= @taxon.name %></p>
+</div>
+
+<% content_for :sidebar do %>
+  <div data-hook="taxon_sidebar_navigation">
+    <%= render partial: 'spree/shared/taxonomies' %>
+    <%= render partial: 'spree/shared/filters' if @taxon.leaf? %>
+  </div>
+<% end %>
+
+<div class="col-md-9" data-hook="taxon_products">
+  <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+</div>
+
+<% unless params[:keywords].present? %>
+  <div data-hook="taxon_children">
+    <% cache [I18n.locale, @taxon] do %>
+      <%= render partial: 'taxon', collection: @taxon.children %>
+    <% end %>
+  </div>
+<% end %>
