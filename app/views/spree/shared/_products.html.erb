@@ -24,12 +24,11 @@
         <div class="panel prod-img ">
           <% cache(@taxon.present? ? [current_currency, @taxon, product] : [current_currency, product]) do %>
             <div class="panel-body text-center product-body">
-              <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %><br/>
-              <%= link_to truncate(product.name, :length => 50), product, :class => 'info more', :itemprop => "name", :title => product.name %>
+              <%= link_to product_image(product, :itemprop => "image", :style=>"width: 100%;height: 100%;"), product, :itemprop => 'url' %><br/>
+              <%= link_to truncate(product.name, :length => 21), product, :class => 'info more', :itemprop => "name", :title => product.name %>
             </div>
             <div class=" text-center">
-              <h5><del><%= product.price %></del></h5>
-              <span class="price selling lead" itemprop="price"><%= display_price(product) %></span>
+              <span class="price selling lead" itemprop="price"><h5><del><%= product.price %></del>  <%= display_price(product) %></h5></span>
             </div>
           <% end %>
         </div>
